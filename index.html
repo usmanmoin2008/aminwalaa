@@ -43,7 +43,7 @@ html,body{
 
 .btn{
     margin-top:30px;
-    padding:14px 40px;
+    padding:14px 42px;
     border-radius:40px;
     background:rgba(255,255,255,0.12);
     border:1px solid rgba(255,255,255,0.4);
@@ -55,34 +55,45 @@ html,body{
     box-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 .btn:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 40px rgba(255,255,255,1);
+    transform:scale(1.12);
+    box-shadow:0 0 45px rgba(255,255,255,1);
 }
 
 /* ===== PAGE 1 ===== */
 #page1{
-    background:radial-gradient(circle at top,#2b1055,#09001a,#000);
+    background:radial-gradient(circle at top,#3a1b5a,#1a082b,#050008);
     overflow:hidden;
 }
+
+/* distant stars */
 .stars{
     position:absolute;
     width:100%;
-    height:200%;
-    background:url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png");
-    opacity:0.35;
-    animation:starsMove 70s linear infinite;
+    height:100%;
+    background:
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 70% 60%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 40% 80%, #fff, transparent),
+        radial-gradient(1px 1px at 80% 20%, #fff, transparent),
+        radial-gradient(2px 2px at 60% 40%, #fff, transparent);
+    background-size:200px 200px;
+    animation:twinkle 6s infinite alternate;
+    opacity:0.5;
 }
-@keyframes starsMove{
-    from{transform:translateY(0);}
-    to{transform:translateY(-1200px);}
+
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:0.7;}
 }
+
 .glow-text{
     font-size:52px;
     color:white;
     text-align:center;
-    text-shadow:0 0 20px #fff,0 0 60px #a855f7;
+    text-shadow:0 0 25px #fff,0 0 70px #b36cff;
     animation:fadeUp 2s ease forwards;
 }
+
 @keyframes fadeUp{
     from{opacity:0;transform:translateY(40px);}
     to{opacity:1;transform:translateY(0);}
@@ -90,7 +101,7 @@ html,body{
 
 /* ===== PAGE 2 ===== */
 #page2{
-    background:linear-gradient(120deg,#1a0933,#2a1455,#120022);
+    background:linear-gradient(120deg,#2b1247,#4b1f6f,#1a082b);
     color:white;
     overflow:hidden;
 }
@@ -101,10 +112,11 @@ html,body{
     margin-top:20px;
     animation:fadeUp 2s ease forwards;
 }
+
 .heart{
     position:absolute;
-    color:rgba(255,120,180,0.8);
-    animation:float 9s linear infinite;
+    color:rgba(255,120,180,0.85);
+    animation:float 10s linear infinite;
 }
 @keyframes float{
     from{transform:translateY(110vh);}
@@ -113,14 +125,14 @@ html,body{
 
 /* ===== PAGE 3 ===== */
 #page3{
-    background:linear-gradient(180deg,#050014,#120033,#09001a);
+    background:linear-gradient(180deg,#090014,#1a0b2e,#050008);
     color:white;
     text-align:center;
 }
 
 /* ===== PAGE 4 ===== */
 #page4{
-    background:radial-gradient(circle,#1a0933,#000);
+    background:radial-gradient(circle,#2a0f44,#050008);
     color:white;
     overflow:hidden;
 }
@@ -128,45 +140,48 @@ html,body{
 /* ===== BOUQUET ===== */
 .bouquet{
     position:relative;
-    width:220px;
-    height:240px;
+    width:300px;
+    height:320px;
     margin-top:40px;
     cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
 }
 .wrapper{
     position:absolute;
     bottom:0;
     width:100%;
-    height:140px;
-    background:linear-gradient(135deg,#00f5d4,#7209b7,#f72585);
-    border-radius:0 0 120px 120px;
-    box-shadow:0 0 30px rgba(255,255,255,0.4);
+    height:180px;
+    background:linear-gradient(135deg,#00f5d4,#7209b7,#f72585,#ffbe0b);
+    border-radius:0 0 160px 160px;
+    box-shadow:0 0 40px rgba(255,255,255,0.5);
 }
-.ribbon{
+.tap-text{
     position:absolute;
-    bottom:50px;
-    left:50%;
-    transform:translateX(-50%);
-    width:120px;
-    height:30px;
-    background:#ff4d9e;
-    border-radius:20px;
+    bottom:70px;
+    color:white;
+    font-size:22px;
+    text-shadow:0 0 10px #fff;
+    z-index:2;
 }
+
+/* flowers */
 .pink-flower{
     position:absolute;
-    bottom:120px;
-    font-size:34px;
+    bottom:150px;
+    font-size:36px;
     opacity:0;
     animation:flowerBlast 2s forwards;
 }
 @keyframes flowerBlast{
-    from{transform:translateY(80px) scale(0);opacity:0;}
-    to{transform:translateY(-120px) scale(1.3);opacity:1;}
+    from{transform:translateY(100px) scale(0);opacity:0;}
+    to{transform:translateY(-160px) scale(1.4);opacity:1;}
 }
 
 .final-text{
     font-size:50px;
-    text-shadow:0 0 25px #fff,0 0 60px #ff9cff;
+    text-shadow:0 0 25px #fff,0 0 70px #ff9cff;
     text-align:center;
 }
 
@@ -195,9 +210,9 @@ html,body{
 <section class="page" id="page2">
     <h1 class="glow-text">Happy Birthday Eman 🎂🎉</h1>
     <div id="wishText">
-        May your life be filled with love, peace, light and endless happiness.  
+        May your life glow with happiness, love and peace.  
         May every dream you carry turn into reality.  
-        You are rare, beautiful, and deeply special 💖✨
+        You are rare, beautiful and unforgettable 💖✨
     </div>
     <button class="btn" onclick="goPage(3)">Next Surprise</button>
 </section>
@@ -206,10 +221,10 @@ html,body{
 <section class="page" id="page3">
     <h1 class="glow-text">A Soft Little Moment 🌙</h1>
     <p style="max-width:80%;font-size:22px;margin-top:20px;">
-        Some souls glow differently.  
-        Some hearts feel like magic.  
-        Some people feel unforgettable.  
-        You are all of that 💫💖
+        Some souls shine differently.  
+        Some hearts feel magical.  
+        Some people feel like home.  
+        You are all of them 💫💖
     </p>
     <button class="btn" onclick="toggleMusic()">🎵 Play Music</button>
     <button class="btn" onclick="goPage(4)">Final Surprise 🎁</button>
@@ -221,7 +236,7 @@ html,body{
 
     <div class="bouquet" onclick="openBouquet()">
         <div class="wrapper"></div>
-        <div class="ribbon"></div>
+        <div class="tap-text">Tap here</div>
     </div>
 </section>
 
@@ -235,7 +250,7 @@ function goPage(n){
 }
 
 /* ===== HEARTS ===== */
-for(let i=0;i<30;i++){
+for(let i=0;i<35;i++){
     let h=document.createElement("div");
     h.className="heart";
     h.innerHTML="💖";
@@ -254,13 +269,17 @@ function toggleMusic(){
 /* ===== BOUQUET OPEN ===== */
 function openBouquet(){
     const bouquet=document.querySelector(".bouquet");
-    for(let i=0;i<40;i++){   // LOT of flowers
-        let f=document.createElement("div");
-        f.className="pink-flower";
-        f.innerHTML="🌸";
-        f.style.left=(Math.random()*200-20)+"px";
-        f.style.animationDelay=(Math.random()*0.4)+"s";
-        bouquet.appendChild(f);
+
+    for(let y=0;y<7;y++){
+        for(let x=0;x<11;x++){
+            let f=document.createElement("div");
+            f.className="pink-flower";
+            f.innerHTML="🌸";
+            f.style.left=(x*26)+"px";
+            f.style.bottom=(140 + y*18)+"px";
+            f.style.animationDelay=(Math.random()*0.3)+"s";
+            bouquet.appendChild(f);
+        }
     }
 }
 </script>
