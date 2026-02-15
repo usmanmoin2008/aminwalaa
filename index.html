@@ -75,4 +75,205 @@ html,body{
     from{transform:translateY(0);}
     to{transform:translateY(-1000px);}
 }
-.glow-text
+.glow-text{
+    font-size:52px;
+    color:white;
+    text-align:center;
+    text-shadow:0 0 20px #fff,0 0 50px #a855f7;
+    animation:fadeUp 2s ease forwards;
+}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* ===== PAGE 2 ===== */
+#page2{
+    background:linear-gradient(120deg,#1a0933,#2a1455,#120022);
+    color:white;
+    overflow:hidden;
+}
+#wishText{
+    max-width:80%;
+    text-align:center;
+    font-size:22px;
+    margin-top:20px;
+    animation:fadeUp 2s ease forwards;
+}
+.heart{
+    position:absolute;
+    color:rgba(255,120,180,0.8);
+    animation:float 8s linear infinite;
+}
+@keyframes float{
+    from{transform:translateY(110vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/* ===== PAGE 3 ===== */
+#page3{
+    background:linear-gradient(180deg,#050014,#120033,#09001a);
+    color:white;
+    text-align:center;
+}
+
+/* ===== PAGE 4 ===== */
+#page4{
+    background:radial-gradient(circle,#1a0933,#000);
+    color:white;
+    overflow:hidden;
+}
+.confetti{
+    position:absolute;
+    width:8px;
+    height:14px;
+    animation:fall 5s linear infinite;
+}
+@keyframes fall{
+    from{transform:translateY(-10vh) rotate(0deg);}
+    to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* ===== BOUQUET ===== */
+.bouquet{
+    position:relative;
+    width:120px;
+    height:160px;
+    margin-top:30px;
+    cursor:pointer;
+}
+.wrap{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:80px;
+    background:#ff9acb;
+    border-radius:0 0 60px 60px;
+}
+.flower{
+    position:absolute;
+    bottom:60px;
+    font-size:30px;
+    opacity:0;
+    animation:flowerPop 2s forwards;
+}
+@keyframes flowerPop{
+    from{transform:translateY(50px) scale(0);opacity:0;}
+    to{transform:translateY(-40px) scale(1);opacity:1;}
+}
+
+.final-text{
+    font-size:48px;
+    text-shadow:0 0 25px #fff,0 0 50px #ff9cff;
+    text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+    .glow-text{font-size:34px;}
+    .final-text{font-size:34px;}
+    #wishText{font-size:18px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="stars"></div>
+    <div class="glow-text">
+        Hi Eman<br>
+        Gotta surprise for you
+    </div>
+    <button class="btn" onclick="goPage(2)">Tap me ✨</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <h1 class="glow-text">Happy Birthday Eman 🎂🎉</h1>
+    <div id="wishText">
+        May your life be filled with love, peace, success and beautiful moments.  
+        May every dream you carry turn into reality.  
+        You deserve happiness, light and magic in every step of your journey 💖✨
+    </div>
+    <button class="btn" onclick="goPage(3)">Next Surprise</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <h1 class="glow-text">A Soft Little Moment 🌙</h1>
+    <p style="max-width:80%;font-size:22px;margin-top:20px;">
+        Some people are rare.  
+        Some souls shine brighter.  
+        Some hearts feel like home.  
+        You are all of them 💖✨
+    </p>
+    <button class="btn" onclick="toggleMusic()">🎵 Play Music</button>
+    <button class="btn" onclick="goPage(4)">Final Surprise 🎁</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="final-text">You Are Truly Special 💫</div>
+
+    <div class="bouquet" onclick="openBouquet()">
+        <div class="wrap"></div>
+    </div>
+</section>
+
+<audio id="music" src="Dandelions.mp3"></audio>
+
+<script>
+/* ===== PAGE SWITCH ===== */
+function goPage(n){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page'+n).classList.add('active');
+}
+
+/* ===== HEARTS ===== */
+for(let i=0;i<25;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=5+Math.random()*5+"s";
+    document.getElementById("page2").appendChild(h);
+}
+
+/* ===== MUSIC ===== */
+let playing=false;
+function toggleMusic(){
+    const m=document.getElementById("music");
+    if(!playing){m.play();playing=true;}else{m.pause();playing=false;}
+}
+
+/* ===== CONFETTI ===== */
+function confetti(){
+    for(let i=0;i<120;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=`hsl(${Math.random()*360},100%,60%)`;
+        c.style.animationDuration=3+Math.random()*4+"s";
+        document.getElementById("page4").appendChild(c);
+    }
+}
+
+/* ===== BOUQUET ANIMATION ===== */
+function openBouquet(){
+    const bouquet=document.querySelector(".bouquet");
+    for(let i=0;i<8;i++){
+        let f=document.createElement("div");
+        f.className="flower";
+        f.innerHTML="🌸";
+        f.style.left=(Math.random()*80)+"px";
+        f.style.animationDelay=(Math.random()*0.5)+"s";
+        bouquet.appendChild(f);
+    }
+    confetti();
+}
+</script>
+
+</body>
+</html>
