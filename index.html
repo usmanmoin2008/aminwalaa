@@ -3,202 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eman Birthday Surprise 💫</title>
+
+<title>Happy Birthday Eman 💜</title>
 
 <style>
-/* ===== FONT ===== */
-@font-face{
-    font-family:'Sellendra';
-    src:url('sellendra.otf') format('opentype');
+/* ================= FONT ================= */
+@font-face {
+    font-family: 'Sellendra';
+    src: url('./sellendra.otf') format('opentype');
 }
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Sellendra',sans-serif;
-}
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
+    font-family:'Sellendra', cursive;
 }
 
-/* ===== GLOBAL ===== */
+/* ================= GLOBAL ================= */
+body{
+    overflow:hidden;
+    background:#2a0a3d;
+    color:white;
+}
+
 .page{
     position:absolute;
     width:100%;
-    height:100%;
+    height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
     opacity:0;
     pointer-events:none;
-    transition:1s ease;
+    transition:opacity 1s ease, transform 1s ease;
 }
+
 .page.active{
     opacity:1;
-    pointer-events:all;
+    pointer-events:auto;
 }
 
-.btn{
-    margin-top:30px;
-    padding:14px 42px;
-    border-radius:40px;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.4);
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    transition:.4s;
-    backdrop-filter:blur(10px);
-    box-shadow:0 0 20px rgba(255,255,255,0.4);
-}
-.btn:hover{
-    transform:scale(1.12);
-    box-shadow:0 0 45px rgba(255,255,255,1);
-}
-
-/* ===== PAGE 1 ===== */
-#page1{
-    background:radial-gradient(circle at top,#3a1b5a,#1a082b,#050008);
-    overflow:hidden;
-}
-
-/* distant stars */
+/* ================= BACKGROUND STARS ================= */
 .stars{
     position:absolute;
-    width:100%;
-    height:100%;
-    background:
-        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
-        radial-gradient(1px 1px at 70% 60%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 40% 80%, #fff, transparent),
-        radial-gradient(1px 1px at 80% 20%, #fff, transparent),
-        radial-gradient(2px 2px at 60% 40%, #fff, transparent);
-    background-size:200px 200px;
-    animation:twinkle 6s infinite alternate;
-    opacity:0.5;
+    inset:0;
+    background:#2a0a3d;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.2;
+    animation:twinkle 4s infinite ease-in-out;
 }
 
 @keyframes twinkle{
-    from{opacity:0.3;}
-    to{opacity:0.7;}
+    0%,100%{opacity:0.2;}
+    50%{opacity:1;}
 }
 
+/* ================= TEXT ================= */
 .glow-text{
-    font-size:52px;
-    color:white;
     text-align:center;
-    text-shadow:0 0 25px #fff,0 0 70px #b36cff;
-    animation:fadeUp 2s ease forwards;
+    font-size:3rem;
+    text-shadow:0 0 15px #ffb3ff,0 0 30px #ff66ff;
+    animation:fadeIn 2s ease forwards;
 }
 
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(40px);}
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
     to{opacity:1;transform:translateY(0);}
 }
 
-/* ===== PAGE 2 ===== */
-#page2{
-    background:linear-gradient(120deg,#2b1247,#4b1f6f,#1a082b);
+/* ================= BUTTON ================= */
+.btn{
+    margin-top:40px;
+    padding:15px 40px;
+    font-size:1.3rem;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff4fd8,#9b4dff);
     color:white;
-    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,79,216,0.6);
+    transition:0.4s;
 }
-#wishText{
-    max-width:80%;
+
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 40px rgba(255,79,216,1);
+}
+
+/* ================= PAGE 2 ================= */
+.wish-text{
+    max-width:700px;
     text-align:center;
-    font-size:22px;
+    font-size:1.4rem;
     margin-top:20px;
-    animation:fadeUp 2s ease forwards;
+    animation:fadeIn 2s ease forwards;
 }
 
-.heart{
-    position:absolute;
-    color:rgba(255,120,180,0.85);
-    animation:float 10s linear infinite;
-}
-@keyframes float{
-    from{transform:translateY(110vh);}
-    to{transform:translateY(-10vh);}
+/* ================= MUSIC ================= */
+.music-btn{
+    margin-top:25px;
+    font-size:1.1rem;
 }
 
-/* ===== PAGE 3 ===== */
-#page3{
-    background:linear-gradient(180deg,#090014,#1a0b2e,#050008);
-    color:white;
-    text-align:center;
-}
-
-/* ===== PAGE 4 ===== */
-#page4{
-    background:radial-gradient(circle,#2a0f44,#050008);
-    color:white;
-    overflow:hidden;
-}
-
-/* ===== BOUQUET ===== */
+/* ================= PAGE 4 BOUQUET ================= */
 .bouquet{
     position:relative;
-    width:300px;
-    height:320px;
-    margin-top:40px;
+    width:200px;
+    height:250px;
+    background:linear-gradient(135deg,#6a1b9a,#ab47bc);
+    border-radius:0 0 100px 100px;
     cursor:pointer;
     display:flex;
     justify-content:center;
-    align-items:flex-end;
-}
-.wrapper{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:180px;
-    background:linear-gradient(135deg,#00f5d4,#7209b7,#f72585,#ffbe0b);
-    border-radius:0 0 160px 160px;
-    box-shadow:0 0 40px rgba(255,255,255,0.5);
-}
-.tap-text{
-    position:absolute;
-    bottom:70px;
-    color:white;
-    font-size:22px;
-    text-shadow:0 0 10px #fff;
-    z-index:2;
-}
-
-/* flowers */
-.pink-flower{
-    position:absolute;
-    bottom:150px;
-    font-size:36px;
-    opacity:0;
-    animation:flowerBlast 2s forwards;
-}
-@keyframes flowerBlast{
-    from{transform:translateY(100px) scale(0);opacity:0;}
-    to{transform:translateY(-160px) scale(1.4);opacity:1;}
-}
-
-.final-text{
-    font-size:50px;
-    text-shadow:0 0 25px #fff,0 0 70px #ff9cff;
+    align-items:center;
     text-align:center;
+    font-size:1.2rem;
+    box-shadow:0 0 30px rgba(255,182,193,0.6);
 }
 
-/* ===== RESPONSIVE ===== */
+.flowers{
+    position:absolute;
+    top:-10px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-wrap:wrap;
+    width:300px;
+    justify-content:center;
+    opacity:0;
+}
+
+.flower{
+    width:40px;
+    height:40px;
+    background:pink;
+    border-radius:50%;
+    margin:5px;
+    box-shadow:0 0 10px hotpink;
+}
+
+.show-flowers{
+    animation:flowersOut 2s forwards ease;
+}
+
+@keyframes flowersOut{
+    from{opacity:0;transform:translate(-50%,50px);}
+    to{opacity:1;transform:translate(-50%,-120px);}
+}
+
+/* ================= RESPONSIVE ================= */
 @media(max-width:600px){
-    .glow-text{font-size:34px;}
-    .final-text{font-size:34px;}
-    #wishText{font-size:18px;}
+    .glow-text{font-size:2rem;}
+    .wish-text{font-size:1.1rem;padding:0 15px;}
 }
 </style>
 </head>
 
 <body>
 
+<div class="stars" id="stars"></div>
+
 <!-- PAGE 1 -->
-<section class="page active" id="page1">
-    <div class="stars"></div>
+<section class="page active" id="p1">
     <div class="glow-text">
         Hi Eman<br>
         Gotta surprise for you
@@ -207,80 +183,74 @@ html,body{
 </section>
 
 <!-- PAGE 2 -->
-<section class="page" id="page2">
-    <h1 class="glow-text">Happy Birthday Eman 🎂🎉</h1>
-    <div id="wishText">
-        May your life glow with happiness, love and peace.  
-        May every dream you carry turn into reality.  
-        You are rare, beautiful and unforgettable 💖✨
+<section class="page" id="p2">
+    <div class="glow-text">Happy Birthday Eman 🎂🎉</div>
+    <div class="wish-text">
+        May your life always glow with happiness, love, and peace 💜  
+        You deserve all the magic, smiles, and beautiful moments the universe can give ✨
     </div>
     <button class="btn" onclick="goPage(3)">Next Surprise</button>
 </section>
 
 <!-- PAGE 3 -->
-<section class="page" id="page3">
-    <h1 class="glow-text">A Soft Little Moment 🌙</h1>
-    <p style="max-width:80%;font-size:22px;margin-top:20px;">
-        Some souls shine differently.  
-        Some hearts feel magical.  
-        Some people feel like home.  
-        You are all of them 💫💖
-    </p>
-    <button class="btn" onclick="toggleMusic()">🎵 Play Music</button>
+<section class="page" id="p3">
+    <div class="glow-text">A little magic for you 🎶</div>
+    <button class="btn music-btn" onclick="toggleMusic()">Play / Pause Music 🎵</button>
+    <audio id="music" src="Dandelions.mp3"></audio>
     <button class="btn" onclick="goPage(4)">Final Surprise 🎁</button>
 </section>
 
 <!-- PAGE 4 -->
-<section class="page" id="page4">
-    <div class="final-text">You Are Truly Special 💫</div>
-
+<section class="page" id="p4">
     <div class="bouquet" onclick="openBouquet()">
-        <div class="wrapper"></div>
-        <div class="tap-text">Tap here</div>
+        Tap here
+        <div class="flowers" id="flowers">
+            <!-- flowers generated by JS -->
+        </div>
+    </div>
+
+    <div class="glow-text" style="margin-top:40px;">
+        You Are Truly Special 💫
     </div>
 </section>
 
-<audio id="music" src="Dandelions.mp3"></audio>
-
 <script>
-/* ===== PAGE SWITCH ===== */
+/* ================= STARS ================= */
+const starsContainer = document.getElementById('stars');
+for(let i=0;i<120;i++){
+    const star=document.createElement('div');
+    star.classList.add('star');
+    star.style.top=Math.random()*100+'%';
+    star.style.left=Math.random()*100+'%';
+    star.style.animationDuration=(Math.random()*3+2)+'s';
+    starsContainer.appendChild(star);
+}
+
+/* ================= PAGE TRANSITION ================= */
 function goPage(n){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById('page'+n).classList.add('active');
+    document.querySelectorAll('.page').forEach(p=>{
+        p.classList.remove('active');
+    });
+    document.getElementById('p'+n).classList.add('active');
 }
 
-/* ===== HEARTS ===== */
-for(let i=0;i<35;i++){
-    let h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💖";
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=6+Math.random()*6+"s";
-    document.getElementById("page2").appendChild(h);
-}
-
-/* ===== MUSIC ===== */
-let playing=false;
+/* ================= MUSIC ================= */
+const music=document.getElementById('music');
 function toggleMusic(){
-    const m=document.getElementById("music");
-    if(!playing){m.play();playing=true;}else{m.pause();playing=false;}
+    if(music.paused){music.play();}
+    else{music.pause();}
 }
 
-/* ===== BOUQUET OPEN ===== */
-function openBouquet(){
-    const bouquet=document.querySelector(".bouquet");
+/* ================= FLOWERS ================= */
+const flowersContainer=document.getElementById('flowers');
+for(let i=0;i<40;i++){
+    const f=document.createElement('div');
+    f.classList.add('flower');
+    flowersContainer.appendChild(f);
+}
 
-    for(let y=0;y<7;y++){
-        for(let x=0;x<11;x++){
-            let f=document.createElement("div");
-            f.className="pink-flower";
-            f.innerHTML="🌸";
-            f.style.left=(x*26)+"px";
-            f.style.bottom=(140 + y*18)+"px";
-            f.style.animationDelay=(Math.random()*0.3)+"s";
-            bouquet.appendChild(f);
-        }
-    }
+function openBouquet(){
+    flowersContainer.classList.add('show-flowers');
 }
 </script>
 
