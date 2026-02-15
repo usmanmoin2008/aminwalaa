@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eman's Birthday Surprise 💫</title>
+
+<style>
+/* ========== FONT IMPORT ========== */
+@font-face {
+    font-family: 'Sellendra';
+    src: url('sellendra.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Sellendra', sans-serif;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+/* ========== GLOBAL ========== */
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:all 1s ease;
+    opacity:0;
+    pointer-events:none;
+}
+
+.page.active{
+    opacity:1;
+    pointer-events:all;
+}
+
+.btn{
+    margin-top:30px;
+    padding:14px 36px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    font-size:20px;
+    border:1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(6px);
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(255,255,255,0.2);
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px rgba(255,255,255,0.8);
+}
+
+/* ========== PAGE 1 ========== */
+#page1{
+    background: radial-gradient(circle at top, #2b1055, #09001a, #000);
+    overflow:hidden;
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png");
+    animation: twinkle 20s linear infinite;
+    opacity:0.3;
+}
+
+@keyframes twinkle{
+    from{transform:translateY(0);}
+    to{transform:translateY(-1000px);}
+}
+
+.glow-text{
+    font-size:50px;
+    color:#fff;
+    text-align:center;
+    text-shadow:0 0 20px #fff, 0 0 40px #a855f7;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ========== PAGE 2 ========== */
+#page2{
+    background: linear-gradient(120deg,#1a0933,#2a1455,#120022);
+    color:white;
+    overflow:hidden;
+}
+
+#typing{
+    font-size:22px;
+    max-width:80%;
+    text-align:center;
+    margin-top:20px;
+}
+
+/* floating hearts */
+.heart{
+    position:absolute;
+    color:rgba(255,150,200,0.7);
+    animation: float 8s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/* ========== PAGE 3 ========== */
+#page3{
+    background: linear-gradient(180deg,#050014,#120033,#09001a);
+    color:white;
+    text-align:center;
+}
+
+.music-btn{
+    margin-top:20px;
+    font-size:18px;
+}
+
+/* ========== PAGE 4 ========== */
+#page4{
+    background: radial-gradient(circle,#1a0933,#000);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.confetti{
+    position:absolute;
+    width:8px;
+    height:14px;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall{
+    from{transform:translateY(-10vh) rotate(0deg);}
+    to{transform:translateY(110vh) rotate(360deg);}
+}
+
+.final-text{
+    font-size:48px;
+    text-shadow:0 0 25px #fff, 0 0 50px #ff9cff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:600px){
+    .glow-text{font-size:34px;}
+    .final-text{font-size:34px;}
+    #typing{font-size:18px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="stars"></div>
+    <div class="glow-text">
+        Hi Eman<br>
+        Gotta surprise for you
+    </div>
+    <button class="btn" onclick="goPage(2)">Click Me ✨</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <h1 class="glow-text">Happy Birthday Eman 🎂🎉</h1>
+    <div id="typing"></div>
+    <button class="btn" onclick="goPage(3)">Next Surprise 🫣</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <h1 class="glow-text">A Message From My Heart 💖</h1>
+    <p style="max-width:80%; font-size:22px; margin-top:20px;">
+        Eman, your presence feels like light in darkness,  
+        like warmth in cold silence.  
+        You are rare, beautiful, and unforgettable.  
+        This world shines a little brighter because you exist. ✨  
+        And today… the universe celebrates you. 🌙💫
+    </p>
+
+    <button class="btn music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+    <button class="btn" onclick="goPage(4)">Final Surprise 🎁👀</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="final-text">You Are Truly Special 💫</div>
+    <p style="max-width:80%; font-size:22px; margin-top:20px;">
+        Never forget how valuable you are.  
+        Never forget how deeply you matter.  
+        Never forget how special your soul is.  
+        Happy Birthday Eman 🎂💖  
+        This surprise is just a small reflection  
+        of how beautiful you truly are ✨
+    </p>
+</section>
+
+<audio id="music" src="Dandelions.mp3"></audio>
+
+<script>
+/* ========== PAGE CONTROL ========== */
+function goPage(n){
+    document.querySelectorAll('.page').forEach(p=>{
+        p.classList.remove('active');
+    });
+    document.getElementById('page'+n).classList.add('active');
+}
+
+/* ========== TYPING EFFECT ========== */
+const text = "On this special day, I wish you endless happiness, love, peace, success, and a life full of beautiful moments. May every dream you carry find its way to reality. You deserve the world and more. 💖✨";
+let i=0;
+function type(){
+    if(i<text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type,50);
+    }
+}
+setTimeout(type,1500);
+
+/* ========== FLOATING HEARTS ========== */
+for(let i=0;i<25;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=5+Math.random()*5+"s";
+    document.getElementById("page2").appendChild(h);
+}
+
+/* ========== MUSIC CONTROL ========== */
+let playing=false;
+function toggleMusic(){
+    const music=document.getElementById("music");
+    if(!playing){
+        music.play();
+        playing=true;
+    }else{
+        music.pause();
+        playing=false;
+    }
+}
+
+/* ========== CONFETTI ========== */
+function createConfetti(){
+    for(let i=0;i<120;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=`hsl(${Math.random()*360},100%,60%)`;
+        c.style.animationDuration=3+Math.random()*4+"s";
+        document.getElementById("page4").appendChild(c);
+    }
+}
+createConfetti();
+</script>
+
+</body>
+</html>
