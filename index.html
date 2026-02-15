@@ -7,15 +7,15 @@
 
 <style>
 /* ===== FONT ===== */
-@font-face {
-    font-family: 'Sellendra';
-    src: url('sellendra.otf') format('opentype');
+@font-face{
+    font-family:'Sellendra';
+    src:url('sellendra.otf') format('opentype');
 }
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Sellendra', sans-serif;
+    font-family:'Sellendra',sans-serif;
 }
 html,body{
     width:100%;
@@ -40,9 +40,10 @@ html,body{
     opacity:1;
     pointer-events:all;
 }
+
 .btn{
     margin-top:30px;
-    padding:14px 38px;
+    padding:14px 40px;
     border-radius:40px;
     background:rgba(255,255,255,0.12);
     border:1px solid rgba(255,255,255,0.4);
@@ -50,12 +51,12 @@ html,body{
     font-size:20px;
     cursor:pointer;
     transition:.4s;
-    backdrop-filter:blur(8px);
-    box-shadow:0 0 20px rgba(255,255,255,0.3);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 .btn:hover{
     transform:scale(1.1);
-    box-shadow:0 0 40px rgba(255,255,255,0.9);
+    box-shadow:0 0 40px rgba(255,255,255,1);
 }
 
 /* ===== PAGE 1 ===== */
@@ -69,21 +70,21 @@ html,body{
     height:200%;
     background:url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png");
     opacity:0.35;
-    animation:starsMove 60s linear infinite;
+    animation:starsMove 70s linear infinite;
 }
 @keyframes starsMove{
     from{transform:translateY(0);}
-    to{transform:translateY(-1000px);}
+    to{transform:translateY(-1200px);}
 }
 .glow-text{
     font-size:52px;
     color:white;
     text-align:center;
-    text-shadow:0 0 20px #fff,0 0 50px #a855f7;
+    text-shadow:0 0 20px #fff,0 0 60px #a855f7;
     animation:fadeUp 2s ease forwards;
 }
 @keyframes fadeUp{
-    from{opacity:0;transform:translateY(30px);}
+    from{opacity:0;transform:translateY(40px);}
     to{opacity:1;transform:translateY(0);}
 }
 
@@ -103,7 +104,7 @@ html,body{
 .heart{
     position:absolute;
     color:rgba(255,120,180,0.8);
-    animation:float 8s linear infinite;
+    animation:float 9s linear infinite;
 }
 @keyframes float{
     from{transform:translateY(110vh);}
@@ -123,48 +124,49 @@ html,body{
     color:white;
     overflow:hidden;
 }
-.confetti{
-    position:absolute;
-    width:8px;
-    height:14px;
-    animation:fall 5s linear infinite;
-}
-@keyframes fall{
-    from{transform:translateY(-10vh) rotate(0deg);}
-    to{transform:translateY(110vh) rotate(360deg);}
-}
 
 /* ===== BOUQUET ===== */
 .bouquet{
     position:relative;
-    width:120px;
-    height:160px;
-    margin-top:30px;
+    width:220px;
+    height:240px;
+    margin-top:40px;
     cursor:pointer;
 }
-.wrap{
+.wrapper{
     position:absolute;
     bottom:0;
     width:100%;
-    height:80px;
-    background:#ff9acb;
-    border-radius:0 0 60px 60px;
+    height:140px;
+    background:linear-gradient(135deg,#00f5d4,#7209b7,#f72585);
+    border-radius:0 0 120px 120px;
+    box-shadow:0 0 30px rgba(255,255,255,0.4);
 }
-.flower{
+.ribbon{
     position:absolute;
-    bottom:60px;
-    font-size:30px;
-    opacity:0;
-    animation:flowerPop 2s forwards;
+    bottom:50px;
+    left:50%;
+    transform:translateX(-50%);
+    width:120px;
+    height:30px;
+    background:#ff4d9e;
+    border-radius:20px;
 }
-@keyframes flowerPop{
-    from{transform:translateY(50px) scale(0);opacity:0;}
-    to{transform:translateY(-40px) scale(1);opacity:1;}
+.pink-flower{
+    position:absolute;
+    bottom:120px;
+    font-size:34px;
+    opacity:0;
+    animation:flowerBlast 2s forwards;
+}
+@keyframes flowerBlast{
+    from{transform:translateY(80px) scale(0);opacity:0;}
+    to{transform:translateY(-120px) scale(1.3);opacity:1;}
 }
 
 .final-text{
-    font-size:48px;
-    text-shadow:0 0 25px #fff,0 0 50px #ff9cff;
+    font-size:50px;
+    text-shadow:0 0 25px #fff,0 0 60px #ff9cff;
     text-align:center;
 }
 
@@ -193,9 +195,9 @@ html,body{
 <section class="page" id="page2">
     <h1 class="glow-text">Happy Birthday Eman 🎂🎉</h1>
     <div id="wishText">
-        May your life be filled with love, peace, success and beautiful moments.  
+        May your life be filled with love, peace, light and endless happiness.  
         May every dream you carry turn into reality.  
-        You deserve happiness, light and magic in every step of your journey 💖✨
+        You are rare, beautiful, and deeply special 💖✨
     </div>
     <button class="btn" onclick="goPage(3)">Next Surprise</button>
 </section>
@@ -204,10 +206,10 @@ html,body{
 <section class="page" id="page3">
     <h1 class="glow-text">A Soft Little Moment 🌙</h1>
     <p style="max-width:80%;font-size:22px;margin-top:20px;">
-        Some people are rare.  
-        Some souls shine brighter.  
-        Some hearts feel like home.  
-        You are all of them 💖✨
+        Some souls glow differently.  
+        Some hearts feel like magic.  
+        Some people feel unforgettable.  
+        You are all of that 💫💖
     </p>
     <button class="btn" onclick="toggleMusic()">🎵 Play Music</button>
     <button class="btn" onclick="goPage(4)">Final Surprise 🎁</button>
@@ -218,7 +220,8 @@ html,body{
     <div class="final-text">You Are Truly Special 💫</div>
 
     <div class="bouquet" onclick="openBouquet()">
-        <div class="wrap"></div>
+        <div class="wrapper"></div>
+        <div class="ribbon"></div>
     </div>
 </section>
 
@@ -232,12 +235,12 @@ function goPage(n){
 }
 
 /* ===== HEARTS ===== */
-for(let i=0;i<25;i++){
+for(let i=0;i<30;i++){
     let h=document.createElement("div");
     h.className="heart";
     h.innerHTML="💖";
     h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=5+Math.random()*5+"s";
+    h.style.animationDuration=6+Math.random()*6+"s";
     document.getElementById("page2").appendChild(h);
 }
 
@@ -248,30 +251,17 @@ function toggleMusic(){
     if(!playing){m.play();playing=true;}else{m.pause();playing=false;}
 }
 
-/* ===== CONFETTI ===== */
-function confetti(){
-    for(let i=0;i<120;i++){
-        let c=document.createElement("div");
-        c.className="confetti";
-        c.style.left=Math.random()*100+"vw";
-        c.style.background=`hsl(${Math.random()*360},100%,60%)`;
-        c.style.animationDuration=3+Math.random()*4+"s";
-        document.getElementById("page4").appendChild(c);
-    }
-}
-
-/* ===== BOUQUET ANIMATION ===== */
+/* ===== BOUQUET OPEN ===== */
 function openBouquet(){
     const bouquet=document.querySelector(".bouquet");
-    for(let i=0;i<8;i++){
+    for(let i=0;i<40;i++){   // LOT of flowers
         let f=document.createElement("div");
-        f.className="flower";
+        f.className="pink-flower";
         f.innerHTML="🌸";
-        f.style.left=(Math.random()*80)+"px";
-        f.style.animationDelay=(Math.random()*0.5)+"s";
+        f.style.left=(Math.random()*200-20)+"px";
+        f.style.animationDelay=(Math.random()*0.4)+"s";
         bouquet.appendChild(f);
     }
-    confetti();
 }
 </script>
 
